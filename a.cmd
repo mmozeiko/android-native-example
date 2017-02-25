@@ -6,6 +6,7 @@ set ANDROID_NDK=C:\android\ndk
 set ANDROID_SDK=C:\android\sdk
 set JAVA_SDK=C:\Program Files\Java\jdk1.8.0_102
 
+set BUILD_PLATFORM=android-24
 set APK=NativeExample.apk
 
 for /f %%v in ('dir /b "%ANDROID_SDK%\build-tools"') do set BUILD_VER=%%v
@@ -51,7 +52,7 @@ if not exist bin mkdir bin
 call "%ANDROID_NDK%\ndk-build.cmd" -j4 NDK_LIBS_OUT=lib\lib
 if ERRORLEVEL 1 exit /b 1
 
-"%ANDROID_SDK%\build-tools\%BUILD_VER%\aapt.exe" package -f -M AndroidManifest.xml -I "%ANDROID_SDK%\platforms\android-24\android.jar" -A assets -F bin\%APK%.build lib
+"%ANDROID_SDK%\build-tools\%BUILD_VER%\aapt.exe" package -f -M AndroidManifest.xml -I "%ANDROID_SDK%\platforms\%BUILD_PLATFORM%\android.jar" -A assets -F bin\%APK%.build lib
 if ERRORLEVEL 1 exit /b 1
 
 if not exist .keystore (
