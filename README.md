@@ -1,16 +1,15 @@
-First adjust `a.cmd` to have correct paths to Android SDK, Android NDK and Java SDK.
-Then set `APK` varible to desired apk package name and adjust `BUILD_PLATFORM` for platform you have installed with Android SDK.
+First either adjust `a.cmd` to have correct paths to Android SDK, Android NDK and Java SDK or set them in environment variables.
+Then set `APK` varible to desired apk package name. Use Android SDK to install build-tools and platform SDK. 
 
-Use `a.cmd` to build & run the application:
+Now you can use `a.cmd` to build, install and run the application:
 
     a [command]
+    By default build, install and run .apk file.
 
-    Where [command] is:
-      go        - builds, installs and runs .apk file
-      run       - installs and runs .apk file
-      build     - only builds .apk file
-      remove    - removes installed .apk
-      install   - only installs .apk file on connected device
-      launch    - ony runs already installed .apk file
+    Optional [command] is:
+      run       - only install and run .apk file
+      build     - only build .apk file
+      remove    - remove installed .apk
+      install   - only install .apk file on connected device
+      launch    - ony run already installed .apk file
       log       - show logcat
-
