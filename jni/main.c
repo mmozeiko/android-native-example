@@ -117,7 +117,7 @@ static int engine_init_display(struct engine* engine)
     AAsset_close(vasset);
 
     AAsset* fasset = AAssetManager_open(engine->app->activity->assetManager, "fragment.glsl", AASSET_MODE_BUFFER);
-    if (!vasset)
+    if (!fasset)
     {
         LOG("error opening fragment.glsl");
         return -1;
