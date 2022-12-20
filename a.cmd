@@ -2,11 +2,9 @@
 
 set APK=NativeExample.apk
 
-rem In the new Android Studio the sdk has been moved to C:\Users\[username]\AppData\Local\Android\Sdk and the ndk to C:\Users\[username]\AppData\Local\Android\Sdk\ndk\[ndk version], so it's harder to get a default directory
-
-rem if "%ANDROID_NDK%" equ "" set ANDROID_NDK=C:\android\ndk
-rem if "%ANDROID_SDK%" equ "" set ANDROID_SDK=C:\android\sdk
-rem if "%JAVA_JDK%" equ "" set JAVA_JDK=C:\Program Files\Java\jdk1.8.0_102
+if "%ANDROID_NDK%" equ "" set ANDROID_NDK=C:\android\ndk
+if "%ANDROID_SDK%" equ "" set ANDROID_SDK=C:\android\sdk
+if "%JAVA_JDK%" equ "" set JAVA_JDK=C:\Program Files\Java\jdk1.8.0_102
 
 call :check || exit /b 1
 
