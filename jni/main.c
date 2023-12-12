@@ -1,4 +1,5 @@
 #include <jni.h>
+#include <string.h>
 
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
@@ -168,7 +169,8 @@ static void engine_draw_frame(struct engine* engine)
         return;
     }
 
-    glClearColor(0.258824f, 0.258824f, 0.435294f, 1);
+    // glClearColor(0.258824f, 0.258824f, 0.435294f, 1);
+    glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUseProgram(engine->shader);
@@ -243,8 +245,6 @@ static void engine_handle_cmd(struct android_app* app, int32_t cmd)
 
 void android_main(struct android_app* state)
 {
-    app_dummy();
-
     struct engine engine;
     memset(&engine, 0, sizeof(engine));
 

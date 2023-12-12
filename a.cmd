@@ -54,10 +54,10 @@ if not exist .keystore (
   if ERRORLEVEL 1 exit /b 1
 )
 
-"%JAVA_JDK%\bin\jarsigner.exe" -storepass android -keystore .keystore bin\%APK%.build androiddebugkey >nul
+"%ANDROID_SDK%\build-tools\%BUILD_TOOLS%\zipalign.exe" -f 4 bin\%APK%.build bin\%APK%
 if ERRORLEVEL 1 exit /b 1
 
-"%ANDROID_SDK%\build-tools\%BUILD_TOOLS%\zipalign.exe" -f 4 bin\%APK%.build bin\%APK%
+call "%JAVA_JDK%\bin\java" -jar "%ANDROID_SDK%\build-tools\%BUILD_TOOLS%\apksigner.jar" sign --ks .keystore --ks-key-alias androiddebugkey --ks-pass pass:android bin\%APK%
 if ERRORLEVEL 1 exit /b 1
 
 del /q bin\%APK%.build
